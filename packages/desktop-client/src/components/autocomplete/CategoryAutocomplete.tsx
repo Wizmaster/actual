@@ -201,7 +201,9 @@ export function CategoryAutocomplete({
         return suggestions.filter(suggestion => {
           return (
             suggestion.id === 'split' ||
-            defaultFilterSuggestion(suggestion, value)
+            defaultFilterSuggestion(suggestion, value) ||
+            suggestion.group &&
+              defaultFilterSuggestion(suggestion.group, value)
           );
         });
       }}
